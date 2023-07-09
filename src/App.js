@@ -1,12 +1,16 @@
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Header from './components/Footer/Footer';
+import Footer from './components/Footer/Footer';
+import Categories from './components/Categories/Categories';
+import './App.css';
 
 function App() {
   return (
     <div className="container">
-      <h1>Hello</h1>
       <Header />
+      <Switch>
+        <Route path="/" component={Categories} />
+      </Switch>
       <Footer />
     </div>
   );
