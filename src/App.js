@@ -9,7 +9,8 @@ function App() {
     <div className="container">
       <Header />
       <Switch>
-        <Route path="/" component={Categories} />
+        <Route path="/" exact component={Categories} />
+        <Route path="/categories/:category" component={Categories} />
       </Switch>
       <Footer />
     </div>
