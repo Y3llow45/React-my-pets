@@ -10,9 +10,9 @@ class Categories extends Component {
         }
     }
     componentDidMount() {
-        fetch('localhost:5000/pets')
+        fetch('localhost:3000/pets')
             .then(res => res.json())
-            .then(res => setState({ pets: res }))
+            .then(res => this.setState({ pets: res }))
             .catch(error => console.log(error));
     }
     render() {
