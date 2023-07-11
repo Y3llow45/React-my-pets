@@ -12,9 +12,11 @@ class Categories extends Component {
     componentDidMount() {
         fetch('localhost:5000/pets')
             .then(res => res.json())
-            .then(res => setPets(res))
+            .then(res => setState({ pets: res }))
+            .catch(error => console.log(error));
     }
     render() {
+        console.log(this.state.pets);
         /*const [pets, setPets] = useState([]);
         useEffect(() => {
             fetch('localhost:5000/pets')
