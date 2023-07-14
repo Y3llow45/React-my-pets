@@ -4,23 +4,23 @@ const Header = () => {
             <nav className="navbar">
                 <section className="navbar-dashboard">
                     <div className="first-bar">
-                        <a href="#">Dashboard</a>
-                        <a className="button" href="#">My Pets</a>
-                        <a className="button" href="#">Add Pet</a>
+                        <a href="/">Dashboard</a>
+                        <a className="button" href="/myPets">My Pets</a>
+                        <a className="button" href="/addPets">Add Pet</a>
                     </div>
                     <div className="second-bar">
                         <ul>
                             <li>Welcome, Paul!</li>
-                            <li><a href="#"><i className="fas fa-sign-out-alt"></i>
+                            <li><a href="/logout"><i className="fas fa-sign-out-alt"></i>
                                 Logout</a></li>
                         </ul>
                     </div>
                 </section>
                 <section className="navbar-anonymous">
                     <ul>
-                        <li><a href="#"><i className="fas fa-user-plus"></i>
+                        <li><a href="/register"><i className="fas fa-user-plus"></i>
                             Register</a></li>
-                        <li><a href="#"><i className="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li><a href="/login"><i className="fas fa-sign-in-alt"></i> Login</a></li>
                     </ul>
                 </section>
             </nav>
