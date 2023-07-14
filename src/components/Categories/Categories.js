@@ -11,7 +11,11 @@ class Categories extends Component {
         }
     }
     componentDidMount() {
-        fetch('localhost:3000/pets')
+        //console.log(this.props.match.params.category);
+        let queryString = this.props.match.params.category
+            ? `?category=${this.props.match.params.category}`
+            : '';
+        fetch(`http://localhost:3000/pets${queryString}`)
             .then(res => res.json())
             .then(res => this.setState({ pets: res }))
             .catch(error => console.log(error));
@@ -31,7 +35,8 @@ class Categories extends Component {
                 <CategoryNavigation />
                 <ul className="other-pets-list">
                     {this.state.pets.map(x =>
-                        <Pet key={x.id} name={x.name} />)
+                        <Pet key={x.id}
+                            {...x} />)
                     }
                 </ul>
             </section>
