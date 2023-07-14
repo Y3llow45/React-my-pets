@@ -17,9 +17,13 @@ class Categories extends Component {
             .then(res => this.setState({ pets: res }))
 
     }
-    componentDidUpdate() {
-        petService.getAll(this.props.match.params.category)
-            .then(res => this.setState({ pets: res }))
+    componentDidUpdate(prevProps) {
+        const category = this.props.match.params.category
+        if (prevProps.match.params.category == category) {
+            return;
+        }
+        petService.getAll(category)
+            .then(res => this.setState({ pets: res, currentCategory: category }))
     }
     render() {
         console.log(this.state.pets);
