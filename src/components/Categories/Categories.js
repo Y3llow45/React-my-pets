@@ -19,7 +19,7 @@ class Categories extends Component {
     }
     componentDidUpdate(prevProps) {
         const category = this.props.match.params.category
-        if (prevProps.match.params.category == category) {
+        if (prevProps.match.params.category === category) {
             return;
         }
         petService.getAll(category)
