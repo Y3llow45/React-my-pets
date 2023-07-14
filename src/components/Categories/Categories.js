@@ -1,24 +1,25 @@
 //import { useEffect, useState } from 'react';
 import { Component } from 'react';
 import Pet from '../Pet/Pet';
+import * as petService from '../../services/petsService'
 import CategoryNavigation from "./CategoryNavigation/CategoryNavigation";
 
 class Categories extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pets: []
+            pets: [],
+            currentCategory: 'all'
         }
     }
     componentDidMount() {
-        //console.log(this.props.match.params.category);
-        let queryString = this.props.match.params.category
-            ? `?category=${this.props.match.params.category}`
-            : '';
-        fetch(`http://localhost:3000/pets${queryString}`)
-            .then(res => res.json())
+        petService.getAll()
             .then(res => this.setState({ pets: res }))
-            .catch(error => console.log(error));
+
+    }
+    componentDidUpdate() {
+        petService.getAll(this.props.match.params.category)
+            .then(res => this.setState({ pets: res }))
     }
     render() {
         console.log(this.state.pets);
