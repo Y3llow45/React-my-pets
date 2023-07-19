@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import petsService from '../../services/petsService'
+import * as petsService from '../../services/petsService'
 
 const PetDetails = ({
     match
@@ -12,12 +12,12 @@ const PetDetails = ({
     return (
         <section class="detailsOtherPet">
             <h3>{pet.name}</h3>
-            <p>Pet counter: {pet.likes} <a href="#"><button class="button"><i
+            <p>Pet counter: {pet.likes} <a href="/likes"><button class="button"><i
                 class="fas fa-heart"></i>
                 Pet</button></a>
             </p>
             <p class="img"><img
-                src={pet.imageURL} /></p>
+                src={pet.imageURL} alt="idk" /></p>
             <p class="description">{pet.description}</p>
         </section>
     );
