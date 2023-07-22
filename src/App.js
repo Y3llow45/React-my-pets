@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import Categories from './components/Categories/Categories';
 import PetDetails from './components/PetDetails/PetDetails';
 import DemoPage from './components/Demo';
+import DemoFuncPage from './components/DemoFunc';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/categories/:category" component={Categories} />
         <Route path="/pets/details/:petId" component={PetDetails} />
         <Route path="/demo" component={DemoPage} />
+        <Route path="/demo-func" component={DemoFuncPage} />
       </Switch>
       <Footer />
     </div>

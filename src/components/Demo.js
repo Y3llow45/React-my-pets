@@ -2,7 +2,7 @@ import { Component } from "react";
 
 const options = [
     { label: 'IT', value: 'it' },
-    { label: 'Engineer', value: 'it' },
+    { label: 'Engineer', value: 'engineer' },
     { label: 'Enemployed', value: 'unemployed' },
 ]
 
@@ -67,7 +67,7 @@ class Demo extends Component {
                         onChange={this.onChangeHandler}
                         value={this.state.occupation}>
                         {options.map(x =>
-                            <option value={x.value}>{x.label}</option>
+                            <option key={x.value} value={x.value}>{x.label}</option>
                         )}
                     </select>
                     <input type="submit" value="Send" onClick={this.onSubmitHandler} />
