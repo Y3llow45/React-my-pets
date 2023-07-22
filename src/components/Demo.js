@@ -1,4 +1,5 @@
-import { Component } from "react";
+import React, { Component } from "react";
+import './Demo.css'
 
 const options = [
     { label: 'IT', value: 'it' },
@@ -14,7 +15,12 @@ class Demo extends Component {
             age: 20,
             bio: 'lorem Ipsum',
             occupation: 'unemployed',
+            errors: {
+                email: false,
+            }
         }
+        this.emailInput = React.createRef();
+
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSubmitHandler = this.onSubmitHandler.bind(this);
 
@@ -22,7 +28,11 @@ class Demo extends Component {
     onSubmitHandler(e) {
         e.preventDefault();
         const { username, age } = this.state;
-        console.log(username, age);
+        console.log(this.state);
+        if (!this.emailInput.current.value.includes('@')) {
+            this.setState({ errors: { email: true } })
+            this.emailInput.current.focus();
+        }
     }
     /*const onSubmitClickHandler = (e) => {
         console.log(e.target.parentNode.username.value);
@@ -50,6 +60,15 @@ class Demo extends Component {
                         value={this.state.username}
                         onChange={this.onChangeHandler}
                     />
+                    <label htmlFor="email">Email</label>
+                    <input
+                        ref={this.emailInput}
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@pesho.com"
+                    />
+                    <div className={`input-validation ${this.state.errors.email && 'show'}`}>Invalid Email!</div>
                     <label htmlFor="">Age</label>
                     <input
                         type="number"
