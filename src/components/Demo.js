@@ -16,7 +16,8 @@ class Demo extends Component {
             bio: 'lorem Ipsum',
             occupation: 'unemployed',
             errors: {
-                email: false,
+                username: '',
+                email: '',
             }
         }
         this.emailInput = React.createRef();
@@ -27,11 +28,14 @@ class Demo extends Component {
     }
     onSubmitHandler(e) {
         e.preventDefault();
-        const { username, age } = this.state;
-        console.log(this.state);
+        if (this.state.username.length < 5) {
+            this.setState(state => ({ errors: { ...state.errors, username: 'Min length 5 characters' } }))
+        }
         if (!this.emailInput.current.value.includes('@')) {
-            this.setState({ errors: { email: true } })
+            this.setState(state => ({ errors: { ...state.errors, email: 'Missing @' } }));
             this.emailInput.current.focus();
+        } else {
+            this.setState(state => ({ errors: { ...state.errors, email: '' } }));
         }
     }
     /*const onSubmitClickHandler = (e) => {
@@ -60,6 +64,9 @@ class Demo extends Component {
                         value={this.state.username}
                         onChange={this.onChangeHandler}
                     />
+                    {this.state.errors.username &&
+                        <div className='input-validation'>{this.state.errors.username}</div>
+                    }
                     <label htmlFor="email">Email</label>
                     <input
                         ref={this.emailInput}
@@ -68,7 +75,9 @@ class Demo extends Component {
                         name="email"
                         placeholder="example@pesho.com"
                     />
-                    <div className={`input-validation ${this.state.errors.email && 'show'}`}>Invalid Email!</div>
+                    {this.state.errors.email &&
+                        <div className='input-validation'>{this.state.errors.email}</div>
+                    }
                     <label htmlFor="">Age</label>
                     <input
                         type="number"
