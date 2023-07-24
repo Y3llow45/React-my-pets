@@ -22,6 +22,7 @@ const Pet = ({
                 <i className="fas fa-heart"></i> <span> {likes}</span>
             </div>
         </li>
+
     );
 }
 export default Pet;

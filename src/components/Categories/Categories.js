@@ -1,6 +1,6 @@
 //import { useEffect, useState } from 'react';
 import { Component } from 'react';
-import Pet from '../Pet/Pet';
+import PetCard from '../PetCard/PetCard';
 import * as petService from '../../services/petsService'
 import CategoryNavigation from "./CategoryNavigation/CategoryNavigation";
 
@@ -40,7 +40,7 @@ class Categories extends Component {
                 <CategoryNavigation />
                 <ul className="other-pets-list">
                     {this.state.pets.map(x =>
-                        <Pet key={x.id}
+                        <PetCard key={x.id}
                             {...x} />)
                     }
                 </ul>
