@@ -19,6 +19,8 @@ function App() {
         <Route path="/pets/details/:petId" exact component={PetDetails} />
         <Route path="/pets/details/:petId/edit" component={EditPetDetails} />
         <Route path="/pets/create" component={CreatePet} />
+        <Route path="/pets/:petId/edit" component={CreatePet} />
+
         <Route path="/demo" component={DemoPage} />
         <Route path="/demo-func" component={DemoFuncPage} />
       </Switch>
