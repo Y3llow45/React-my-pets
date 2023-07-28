@@ -1,6 +1,7 @@
-import { PetFormView } from '../PetFormView/PetFormView'
-import { Component } from 'react'
-import * as petsService from '../../services/petsService'
+import { Component } from 'react';
+
+import * as petsService from '../../services/petsService';
+import PetFormView from '../PetFormView/PetFormView';
 
 class EditPet extends Component {
     constructor(props) {
