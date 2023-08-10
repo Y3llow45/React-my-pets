@@ -13,8 +13,8 @@ const Header = () => {
                     <div className="second-bar">
                         <ul>
                             <li>Welcome, Paul!</li>
-                            <li><a href="/logout"><i className="fas fa-sign-out-alt"></i>
-                                Logout</a></li>
+                            <li><Link to="/logout"><i className="fas fa-sign-out-alt"></i>
+                                Logout</Link></li>
                         </ul>
                     </div>
                 </section>
@@ -26,7 +26,7 @@ const Header = () => {
                     </ul>
                 </section>
             </nav>
-            <style jsx>{`
+            <style>{`
                 nav.navbar {
                     display: flex;
                     flex-wrap: wr ap;

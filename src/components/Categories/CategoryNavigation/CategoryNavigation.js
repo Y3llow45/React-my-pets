@@ -11,7 +11,7 @@ const CategoryNavigation = () => {
                 <li><NavLink activeClassName='nav-link-selected' to="/categories/Reptile">Reptiles</NavLink></li>
                 <li><NavLink activeClassName='nav-link-selected' to="/categories/Other">Other</NavLink></li>
             </ul>
-            <style jsx>{`
+            <style>{`
                 .nav-link-selected {
                     background-color: lightgreen !important;
                 }
