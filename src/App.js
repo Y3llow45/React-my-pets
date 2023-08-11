@@ -14,16 +14,16 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    auth().onAuthStateChanged(setUser)
+    auth.onAuthStateChanged(setUser);
   }, []);
 
   const authInfo = {
     isAuthenticated: Boolean(user),
     username: user?.email,
-  }
+  };
 
   return (
     <div className="container">
