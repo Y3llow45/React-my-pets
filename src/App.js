@@ -9,6 +9,8 @@ import EditPetDetails from './components/EditPetDetails/EditPetDetails';
 import EditPet from './components/EditPet/EditPet';
 import CreatePet from './components/CreatePet/CreatePet';
 import AdvancedTechniques from './components/AdvancedTechniques/AdvancedTechniques';
+import AdvancedTechniques2 from './components/AdvancedTechniques2/AdvancedTechniques';
+import AdvancedTechniques3 from './components/AdvancedTechniques3/AdvancedTechniques';
 import DemoPage from './components/Demo';
 import { auth } from './utils/firebase';
 import './App.css';
@@ -45,6 +47,8 @@ function App() {
 
         <Route path="/demo" component={DemoPage} />
         <Route path="/advanced-techniques" component={AdvancedTechniques} />
+        <Route path="/advanced-techniques2" component={AdvancedTechniques2} />
+        <Route path="/advanced-techniques3" component={AdvancedTechniques3} />
       </Switch>
       <Footer />
     </div>
