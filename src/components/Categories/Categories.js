@@ -14,8 +14,10 @@ class Categories extends Component {
     }
     componentDidMount() {
         petService.getAll()
-            .then(res => this.setState({ pets: res }))
-
+            .then(res => this.setState({ pets: res }));
+        if(Math.random() > 0.7) {
+            throw new Error("Something went wrong!");
+        }
     }
     componentDidUpdate(prevProps) {
         const category = this.props.match.params.category
@@ -24,6 +26,14 @@ class Categories extends Component {
         }
         petService.getAll(category)
             .then(res => this.setState({ pets: res, currentCategory: category }))
+    }
+    onPetButtonClickHander(petId, likes) {
+        petsService.pet(petId, likes + 1)
+            .then((result) => {
+                console.log(result);
+                this.setState(state => ({pets: state.pets.map(x => x.id == petId ? {...x, likes: result.likes} : x)}))
+            })
+
     }
     render() {
         console.log(this.state.pets);
@@ -40,9 +50,8 @@ class Categories extends Component {
                 <CategoryNavigation />
                 <ul className="other-pets-list">
                     {this.state.pets.map(x =>
-                        <PetCard key={x.id}
-                            {...x} />)
-                    }
+                        <PetCard key={x.id} {...x} onPetButtonClickHander={this.onPetButtonClickHander.bind(this, x.id, x.likes)}/>
+                    )}
                 </ul>
             </section>
         );

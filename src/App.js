@@ -11,6 +11,7 @@ import CreatePet from './components/CreatePet/CreatePet';
 import AdvancedTechniques from './components/AdvancedTechniques/AdvancedTechniques';
 import AdvancedTechniques2 from './components/AdvancedTechniques2/AdvancedTechniques';
 import AdvancedTechniques3 from './components/AdvancedTechniques3/AdvancedTechniques';
+import CustomErrorBoundary from './components/CustomErrorBoundary/CustomErrorBoundary'
 import DemoPage from './components/Demo';
 import { auth } from './utils/firebase';
 import './App.css';
@@ -31,6 +32,7 @@ function App() {
   return (
     <div className="container">
       <Header {...authInfo} />
+      <CustomErrorBoundary>
       <Switch>
         <Route path="/" exact render={props => <Categories {...props} {...authInfo} />} />
         <Route path="/categories/:category" render={props => <Categories {...props} {...authInfo} />} />
@@ -50,6 +52,7 @@ function App() {
         <Route path="/advanced-techniques2" component={AdvancedTechniques2} />
         <Route path="/advanced-techniques3" component={AdvancedTechniques3} />
       </Switch>
+      </CustomErrorBoundary>
       <Footer />
     </div>
   );
