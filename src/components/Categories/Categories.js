@@ -1,7 +1,7 @@
 //import { useEffect, useState } from 'react';
 import { Component } from 'react';
 import PetCard from '../PetCard/PetCard';
-import * as petService from '../../services/petsService'
+import * as petsService from '../../services/petsService'
 import CategoryNavigation from "./CategoryNavigation/CategoryNavigation";
 
 class Categories extends Component {
@@ -13,18 +13,15 @@ class Categories extends Component {
         }
     }
     componentDidMount() {
-        petService.getAll()
+        petsService.getAll()
             .then(res => this.setState({ pets: res }));
-        if(Math.random() > 0.7) {
-            throw new Error("Something went wrong!");
-        }
     }
     componentDidUpdate(prevProps) {
         const category = this.props.match.params.category
         if (prevProps.match.params.category === category) {
             return;
         }
-        petService.getAll(category)
+        petsService.getAll(category)
             .then(res => this.setState({ pets: res, currentCategory: category }))
     }
     
