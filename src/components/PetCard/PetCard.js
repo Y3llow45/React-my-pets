@@ -11,6 +11,7 @@ const Pet = ({
     likes,
 }) => {
     const [currentLikes, setCurrentLikes] = useState(likes);
+
     const onPetButtonClickHandler = () => {
         petsService.pet(id, likes + 1)
             .then((result) => {
@@ -30,7 +31,7 @@ const Pet = ({
                     Pet
                 </button>
                 <Link to={`/pets/details/${id}`}><button className="button">Details</button></Link>
-                <i className="fas fa-heart"></i><span>{likes}</span>
+                <i className="fas fa-heart"></i><span>{currentLikes}</span>
             </div>
         </li>
 

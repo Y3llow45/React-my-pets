@@ -1,7 +1,9 @@
 import PetCard from './PetCard'
 import { BrowserRouter } from 'react-router-dom';
-
+import * as petsService from '../../services/petsService';
 import {render, screen, fireEvent, waitFor} from '@testing-library/react'
+
+jest.mock('../../services/petsService')
 
 describe('PetCard Component', () => {
     it('Should display name', () => {
@@ -14,6 +16,7 @@ describe('PetCard Component', () => {
         expect(document.querySelector('h3').textContent).toBe('Name: Pesho');
     });
     it('Should increase likes when pet button is pressed', async() => {
+        petsService.pet.mockResolvedValue({likes: 6});
         render(
             <BrowserRouter>
                 <PetCard likes={5}/>

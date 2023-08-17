@@ -15,6 +15,8 @@ import CustomErrorBoundary from './components/CustomErrorBoundary/CustomErrorBou
 import DemoPage from './components/Demo';
 import { auth } from './utils/firebase';
 import './App.css';
+import AuthContext from './contexts/AuthContext';
+import isAuth from './hoc/isAuth';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
 
   return (
     <div className="container">
+      <AuthContext.Provider value={authInfo}>
       <Header {...authInfo} />
       <CustomErrorBoundary>
       <Switch>
@@ -54,6 +57,7 @@ function App() {
       </Switch>
       </CustomErrorBoundary>
       <Footer />
+      </AuthContext.Provider>
     </div>
   );
 }
